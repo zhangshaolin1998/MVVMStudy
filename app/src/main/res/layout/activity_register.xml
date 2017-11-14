@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+<data>
+   <variable
+       name="userinfo"
+       type="com.bewei.mvvms.bean.UserInfo"></variable>
+</data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_height="wrap_content">
+        <EditText
+            android:hint="请输入手机号"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@={userinfo.mobile}"
+            />
+        <!--输入框获取值加 “=”textview不需要 -->
+        <EditText
+            android:hint="请输入密码"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@={userinfo.password}"
+            />
+        <Button
+            android:text="注册"
+            android:layout_width="wrap_content"
+            android:onClick="@{()->userinfo.onRegister(userinfo.mobile,userinfo.password)}"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+
+</layout>
